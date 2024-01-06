@@ -1,0 +1,668 @@
+-- MySQL dump 10.13  Distrib 8.0.32, for Win64 (x86_64)
+--
+-- Host: localhost    Database: project
+-- ------------------------------------------------------
+-- Server version	8.0.32
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `account`
+--
+
+DROP TABLE IF EXISTS `account`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `account` (
+  `AccountId` char(36) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL,
+  `UserName` varchar(255) DEFAULT NULL,
+  `PassWord` varchar(255) DEFAULT NULL,
+  `CreateDate` date DEFAULT NULL,
+  `CreateBy` varchar(255) DEFAULT NULL,
+  `ModifiedDate` date DEFAULT NULL,
+  `ModifiedBy` varchar(266) DEFAULT NULL,
+  `Email` varchar(100) NOT NULL,
+  `FullName` varchar(100) NOT NULL,
+  `PhoneNumber` varchar(20) NOT NULL,
+  `Gender` int DEFAULT NULL,
+  `DateOfBirth` date DEFAULT NULL,
+  `IdentifyNumber` varchar(25) DEFAULT NULL,
+  `Image` blob,
+  `isEmailVarified` tinyint DEFAULT NULL,
+  PRIMARY KEY (`AccountId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `account`
+--
+
+LOCK TABLES `account` WRITE;
+/*!40000 ALTER TABLE `account` DISABLE KEYS */;
+INSERT INTO `account` VALUES ('175b8681-df9e-41a3-a7a6-058943ccc460','dinhhuuthanh','$2a$12$uLUvJpAkuO6klqMExMt0QeroMD.3QrS2pM3KZkMpZUdgWRmKb2z/6',NULL,NULL,NULL,NULL,'dinhhuuthanh@gmail.com','Đinh Hữu Thành','0355569064',1,NULL,'45453355',NULL,0),('2907daa6-6eb4-485e-ac95-18b9e1dbd116','nguyenthanhdat','$2a$12$9q1pcQ695blsnHG0nWKplOWtvMpDE0hZ56G16nCfASK5NrHnl/kui',NULL,NULL,NULL,NULL,'topthuthuat69@gmail.com','Nguyễn Thành Đạt','0343223432',1,NULL,'12121311',NULL,0),('66953006-156b-47a5-aaa1-42219157a916','nguyentranbinhan','$2a$12$xkZ.uqvClp7BvqnmcIPUYOeY3oWaDinmD6husyUsSbo30KnUOs.8q',NULL,NULL,NULL,NULL,'tranbinhan223@gmail.com','Nguyễn Trần Bình An','0881322336',1,NULL,'34534533',NULL,1),('710571cd-c80e-4b15-b29c-13ab8a617e8c','nguyenmailinh','$2a$12$A21ruZKZVp56P9jqxGrUx.viKdNx6VbfQHXv7uJxHPteDymvCbV/m',NULL,NULL,NULL,NULL,'nguyenmailinh2007@gmail.com','Nguyễn Mai Linh ','0642233452',0,NULL,'75675343',NULL,0),('72d8b20c-b62e-4a9d-a093-efc293886d2a','nguyenvantuananh','$2a$10$qkMePmciajhDjXwMl8OP9ukTA7fJT3TRBZuKG6rappER9h8tgQ95.',NULL,NULL,NULL,NULL,'caibutchi267@gmail.com','Nguyễn Văn Tuấn Anh','5654564463',1,NULL,'54456456',NULL,1),('7f508e11-ed11-4b70-ba26-da05606fd162','phamtranduc','$2a$12$zIEfT62p0JMTNq/QASE2xuVMpLdLQa1yHECLWfVcIRZwOpSTqWS7i',NULL,NULL,NULL,NULL,'phamtranducc@gmail.com','Phạm Trần Đức','0463134342',1,NULL,'45335455',NULL,1),('c7bc06c5-7cbc-4d82-a9a2-f92b36f2bfdf','nguyendinhhiep','$2a$12$gCSnkWKdpRgsrq4mlkeD2.2bfPfe93o.hdeGPlZ7I1f.GBmEMy20e',NULL,NULL,NULL,NULL,'Dinhhiep282001@gmail.con','Nguyễn Đình Hiệp','0656675643',1,NULL,'36455644',NULL,1),('cc2f3e6b-213a-4a00-b093-f806cdd68c82','duongthetan','$2a$12$WiBbqwvj73j4lnqRgcnwAOB5i0Oko.Vs7SJg/8R/kflilkSHDQr9S',NULL,NULL,NULL,NULL,'Tantitan@gmail.com','Dương Thế Tân','0912342132',1,NULL,'56743343',NULL,1),('e6a0ecd9-8080-4a27-a494-281ddbfc21fc','ledinhthanhlong','$2a$12$6SnfDKh/PJhEjK/dlclswOHtCHzvZIBNkvr.xeRQxh2Q2LKPitYhO',NULL,NULL,NULL,NULL,'ledinhthanhlong2001@gmail.com','Lê Đình Thành Long','0489984324',1,NULL,'58675445',NULL,1),('ed8e73fc-2097-4f3b-8103-a092cc5e082f','nguyentuandung','$2a$12$dT0AehgSTZ8iqwURg29/MOI.U9JonHGN7nYaN6KPhOQzSjnKoTxyO',NULL,NULL,NULL,NULL,'nguyentuandung2001@gmail.com','Nguyễn Tuấn Dũng','0345235327',1,NULL,'56755454',NULL,0),('eece606d-d715-4526-8576-6714491c6d6f','taxuantue','$2a$12$wOldNpfnNHGdPpl8Bx3AP.G7pDiLJ1ex.Kx90oJ9eqnudI9ogUX5G',NULL,NULL,NULL,NULL,'taxuantue2001@gmail.com','Tạ Xuân Tuệ','0865419678',1,NULL,'78978777',NULL,0);
+/*!40000 ALTER TABLE `account` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `address`
+--
+
+DROP TABLE IF EXISTS `address`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `address` (
+  `AddressId` char(36) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL,
+  `AccountId` char(36) CHARACTER SET ascii COLLATE ascii_general_ci DEFAULT NULL,
+  `Particular` varchar(255) NOT NULL,
+  `Wards` varchar(100) NOT NULL,
+  `District` varchar(100) NOT NULL,
+  `Province` varchar(100) NOT NULL,
+  `CreateDate` date DEFAULT NULL,
+  `CreateBy` varchar(255) DEFAULT NULL,
+  `ModifiedDate` date DEFAULT NULL,
+  `ModifiedBy` varchar(266) DEFAULT NULL,
+  PRIMARY KEY (`AddressId`),
+  KEY `FK_AddressAccount` (`AccountId`),
+  CONSTRAINT `FK_AddressAccount` FOREIGN KEY (`AccountId`) REFERENCES `account` (`AccountId`) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `address`
+--
+
+LOCK TABLES `address` WRITE;
+/*!40000 ALTER TABLE `address` DISABLE KEYS */;
+INSERT INTO `address` VALUES ('18db467e-82d2-4e45-9ee2-5b999a6384a1','c7bc06c5-7cbc-4d82-a9a2-f92b36f2bfdf','a','hihi','haha','Bắc Ninh',NULL,NULL,NULL,NULL),('26cd0198-8915-4a93-b712-4ed1422fa472','175b8681-df9e-41a3-a7a6-058943ccc460','1','hihi','TX. Phú Thọ','Phú Thọ',NULL,NULL,NULL,NULL),('3b6b176d-cfa9-4bc6-b6a7-741663f61eee','2907daa6-6eb4-485e-ac95-18b9e1dbd116','1','k có','TP.Hải Phòng','Hải Phòng',NULL,NULL,NULL,NULL),('48b022b3-cf6c-4de4-abf1-fdce49b7d0a1','ed8e73fc-2097-4f3b-8103-a092cc5e082f','b','hihi','haha','Bắc Ninh',NULL,NULL,NULL,NULL),('872a918d-782d-446c-9650-432fe827ce44','66953006-156b-47a5-aaa1-42219157a916','1','k biết','TP. Nam Định','Nam Định',NULL,NULL,NULL,NULL),('91816083-46a0-43f5-af08-3aa929db439c','7f508e11-ed11-4b70-ba26-da05606fd162','a','k care','Phù Ninh','Phú Thọ',NULL,NULL,NULL,NULL),('96508e7a-1319-42d7-8e2c-10f2f8ff4164','e6a0ecd9-8080-4a27-a494-281ddbfc21fc','b','hihi','haha','Thái Nguyên',NULL,NULL,NULL,NULL),('c217d8b2-9c58-4b58-84f9-45bceebd100e','710571cd-c80e-4b15-b29c-13ab8a617e8c','1','Thị trấn Lâm Thao','Lâm Thao','Phú Thọ',NULL,NULL,NULL,NULL),('cd2b830b-6348-46e5-b1e9-0b7b5d0e7871','cc2f3e6b-213a-4a00-b093-f806cdd68c82','a','hihi','Vũ Quang','Hà Tĩnh',NULL,NULL,NULL,NULL),('f0b7da75-97ba-4ac3-a4d4-918f28c43146','eece606d-d715-4526-8576-6714491c6d6f','b','hihi','Lâm Thao','Phú Thọ',NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `address` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `category`
+--
+
+DROP TABLE IF EXISTS `category`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `category` (
+  `CategoryId` char(36) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL,
+  `CategoryCode` varchar(20) NOT NULL,
+  `CategoryName` varchar(255) NOT NULL,
+  `Describle` varchar(300) DEFAULT NULL,
+  `CreateDate` date DEFAULT NULL,
+  `CreateBy` varchar(255) DEFAULT NULL,
+  `ModifiedDate` date DEFAULT NULL,
+  `ModifiedBy` varchar(266) DEFAULT NULL,
+  PRIMARY KEY (`CategoryId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `category`
+--
+
+LOCK TABLES `category` WRITE;
+/*!40000 ALTER TABLE `category` DISABLE KEYS */;
+INSERT INTO `category` VALUES ('27006ebe-0655-4de0-9040-3e3ca0a3ea6e','DM0004','Camera','có chức năng ghi hình để giám sát mọi hoạt động',NULL,NULL,NULL,NULL),('6d46a5cd-1198-477c-af05-9dbc8ef43e16','DM0006','May choi game','có chức năng ghi hình để giám sát mọi hoạt động',NULL,NULL,NULL,NULL),('75e478bd-673e-468e-a3a5-49719011828e','DM0005','May choi game','có chức năng ghi hình để giám sát mọi hoạt động',NULL,NULL,NULL,NULL),('85ff8df4-31bc-4e20-9b98-add8e55094cf','DM0001','Điện thoại','thiết bị di động, nhỏ gọn, có thể nghe gọi',NULL,NULL,NULL,NULL),('b1da3583-4ec7-49a7-9fd5-92b84e635f39','DM0003','PC','máy tính để bàn có giá thành thấp',NULL,NULL,NULL,NULL),('bd285f1a-e418-4e65-a8b7-fc6f7e04233f','DM0002','Laptop','Máy tính xách tay, tính cơ động cao',NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `category` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `conditions`
+--
+
+DROP TABLE IF EXISTS `conditions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `conditions` (
+  `ConditionId` char(36) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL,
+  `ConditionCode` varchar(20) NOT NULL,
+  `ConditionName` varchar(255) NOT NULL,
+  `Describle` varchar(255) DEFAULT NULL,
+  `CreateDate` date DEFAULT NULL,
+  `CreateBy` varchar(255) DEFAULT NULL,
+  `ModifiedDate` date DEFAULT NULL,
+  `ModifiedBy` varchar(266) DEFAULT NULL,
+  PRIMARY KEY (`ConditionId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `conditions`
+--
+
+LOCK TABLES `conditions` WRITE;
+/*!40000 ALTER TABLE `conditions` DISABLE KEYS */;
+INSERT INTO `conditions` VALUES ('5dd64ef5-a006-4f63-b257-beb60b40a1a1','TT0002','Chờ vận chuyển','Đơn hàng đã được chuẩn bị, chờ vận chuyển',NULL,NULL,NULL,NULL),('6e23e489-68ad-499d-9ceb-456e3692ba7a','TT0001','Chờ xác nhận','Đon hàng cần được xác nhận bởi phía quản lý',NULL,NULL,NULL,NULL),('84831315-6d99-45bc-a395-605237679376','TT0005','Đã hủy','Đơn hàng này đã bị hủy, test API của condition đã thành công',NULL,NULL,NULL,NULL),('e5192344-055e-4f24-ac0b-1f323de6df59','TT0003','Đang vận chuyển','Đơn Hàng đang trên đường đến tay người dùng',NULL,NULL,NULL,NULL),('f9a8462f-86b3-4c76-b66e-017b8a225d1f','TT0004','Đã giao ','Đơn hàng đã được giao thành công',NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `conditions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `customer`
+--
+
+DROP TABLE IF EXISTS `customer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `customer` (
+  `CustomerId` char(36) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL,
+  `CustomerCode` varchar(20) NOT NULL,
+  `RankId` char(36) CHARACTER SET ascii COLLATE ascii_general_ci DEFAULT NULL,
+  `AccountId` char(36) CHARACTER SET ascii COLLATE ascii_general_ci DEFAULT NULL,
+  `CreateDate` date DEFAULT NULL,
+  `CreateBy` varchar(255) DEFAULT NULL,
+  `ModifiedDate` date DEFAULT NULL,
+  `ModifiedBy` varchar(266) DEFAULT NULL,
+  `DateOfBirth` datetime(6) DEFAULT NULL,
+  `FullName` varchar(255) DEFAULT NULL,
+  `Gender` int NOT NULL,
+  `IdentifyNumber` varchar(255) DEFAULT NULL,
+  `PhoneNumber` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`CustomerId`),
+  KEY `FK_CustomerAccount` (`AccountId`),
+  KEY `FK_CustomerRank` (`RankId`),
+  CONSTRAINT `FK_CustomerAccount` FOREIGN KEY (`AccountId`) REFERENCES `account` (`AccountId`) ON DELETE SET NULL,
+  CONSTRAINT `FK_CustomerRank` FOREIGN KEY (`RankId`) REFERENCES `ranks` (`RankId`) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `customer`
+--
+
+LOCK TABLES `customer` WRITE;
+/*!40000 ALTER TABLE `customer` DISABLE KEYS */;
+INSERT INTO `customer` VALUES ('2059543b-9c90-41e9-981f-523949383927','KH00003','fe7d81a1-c838-4885-bbbe-ddb181773380','c7bc06c5-7cbc-4d82-a9a2-f92b36f2bfdf',NULL,NULL,NULL,NULL,NULL,NULL,0,NULL,NULL),('297da8b5-a376-498d-a6f7-08c180507b3c','KH00004','0f8b1206-43ec-4ffd-a82d-61a49a890e6b','2907daa6-6eb4-485e-ac95-18b9e1dbd116',NULL,NULL,NULL,NULL,NULL,NULL,0,NULL,NULL),('2e813a16-bf06-4ddf-962a-f629dec52047','KH00001','c8e4b0ff-58b3-4126-ac33-68e0ec676c7e','cc2f3e6b-213a-4a00-b093-f806cdd68c82',NULL,NULL,NULL,NULL,NULL,NULL,0,NULL,NULL),('3ecd9dde-1507-4344-953e-1957b41241bf','KH00002','c0a25673-e1cc-4cee-8d12-a12607476f01','e6a0ecd9-8080-4a27-a494-281ddbfc21fc',NULL,NULL,NULL,NULL,NULL,NULL,0,NULL,NULL),('d999140e-66b5-4d08-a858-2a916a39be62','KH00005','8bc662d1-673a-4adf-bd6d-ee055139e7f5','175b8681-df9e-41a3-a7a6-058943ccc460',NULL,NULL,NULL,NULL,NULL,NULL,0,NULL,NULL);
+/*!40000 ALTER TABLE `customer` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `delivery`
+--
+
+DROP TABLE IF EXISTS `delivery`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `delivery` (
+  `DeliveryId` char(36) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL,
+  `DeliveryCode` varchar(20) NOT NULL,
+  `DeliveryName` varchar(255) NOT NULL,
+  `Describle` varchar(255) DEFAULT NULL,
+  `CreateDate` date DEFAULT NULL,
+  `CreateBy` varchar(255) DEFAULT NULL,
+  `ModifiedDate` date DEFAULT NULL,
+  `ModifiedBy` varchar(266) DEFAULT NULL,
+  PRIMARY KEY (`DeliveryId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `delivery`
+--
+
+LOCK TABLES `delivery` WRITE;
+/*!40000 ALTER TABLE `delivery` DISABLE KEYS */;
+INSERT INTO `delivery` VALUES ('05eed730-7bc9-4b57-b6cb-84ec1d1dc378','VC0005','vận chuyển máy bay','test API thành công',NULL,NULL,NULL,NULL),('085ea7bf-c6e1-4c6b-b0d3-7216cc7113fc','VC0003','vận chuyển đường sắt',NULL,NULL,NULL,NULL,NULL),('35880dee-72bd-431f-97c3-e1f6e66f3db2','VC0004','vận chuyển đường bộ',NULL,NULL,NULL,NULL,NULL),('57e4d32f-4cfb-4e6c-8390-c6dd99e38619','VC0001','vận chuyển nhanh',NULL,NULL,NULL,NULL,NULL),('e70bb4b0-d6fb-4683-8989-6fabe39fabde','VC0002','vận chuyên chậm',NULL,NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `delivery` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `department`
+--
+
+DROP TABLE IF EXISTS `department`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `department` (
+  `DepartmentId` char(36) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL,
+  `DepartmentCode` varchar(20) NOT NULL,
+  `DepartmentName` varchar(255) NOT NULL,
+  `CreateDate` date DEFAULT NULL,
+  `CreateBy` varchar(255) DEFAULT NULL,
+  `ModifiedDate` date DEFAULT NULL,
+  `ModifiedBy` varchar(266) DEFAULT NULL,
+  PRIMARY KEY (`DepartmentId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `department`
+--
+
+LOCK TABLES `department` WRITE;
+/*!40000 ALTER TABLE `department` DISABLE KEYS */;
+INSERT INTO `department` VALUES ('36d641e5-a8ce-4135-a18d-58fcc975d843','PB0003','Phòng Kế toán',NULL,NULL,NULL,NULL),('5ecf8715-6164-461d-802c-f6d55c186904','PB0005','Phòng Makerting',NULL,NULL,NULL,NULL),('ac327849-4ac7-4afd-80a7-6bb6220a49f4','PB0004','Phòng Nhân sự',NULL,NULL,NULL,NULL),('cf0fb3cf-c96c-4c2b-92be-24356bf070f1','PB0002','Phòng Kĩ thuật',NULL,NULL,NULL,NULL),('dfd0ccbe-3cd9-4ed0-97f7-9701c28503ca','PB0001','Phòng IT',NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `department` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `employee`
+--
+
+DROP TABLE IF EXISTS `employee`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `employee` (
+  `EmployeeID` char(36) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL,
+  `EmployeeCode` varchar(20) NOT NULL COMMENT 'Ma nhan vien',
+  `IdentifyDate` date DEFAULT NULL,
+  `IdentifyPlace` varchar(255) DEFAULT NULL,
+  `Address` varchar(255) DEFAULT NULL,
+  `TaxCode` varchar(255) DEFAULT NULL,
+  `Salary` decimal(18,4) DEFAULT NULL,
+  `JoinDate` date DEFAULT NULL,
+  `WorkStatus` int DEFAULT NULL,
+  `CreateDate` date DEFAULT NULL,
+  `CreateBy` varchar(255) DEFAULT NULL,
+  `ModifiedDate` date DEFAULT NULL,
+  `ModifiedBy` varchar(266) DEFAULT NULL,
+  `AccountID` char(36) CHARACTER SET ascii COLLATE ascii_general_ci DEFAULT NULL,
+  `DepartmentID` char(36) CHARACTER SET ascii COLLATE ascii_general_ci DEFAULT NULL,
+  `PositionID` char(36) CHARACTER SET ascii COLLATE ascii_general_ci DEFAULT NULL,
+  `DateOfBirth` datetime(6) DEFAULT NULL,
+  `Email` varchar(255) DEFAULT NULL,
+  `FullName` varchar(255) DEFAULT NULL,
+  `Gender` int NOT NULL,
+  `IdentifyNumber` varchar(255) DEFAULT NULL,
+  `PhoneNumber` varchar(255) DEFAULT NULL,
+  `ModifyBy` varchar(255) DEFAULT NULL,
+  `ModifyDate` datetime(6) DEFAULT NULL,
+  PRIMARY KEY (`EmployeeID`) COMMENT 'khoa chinh',
+  KEY `FK_EmployeeAccount` (`AccountID`),
+  KEY `FK_EmployeeDepartment` (`DepartmentID`),
+  KEY `FK_EmployeePosition` (`PositionID`),
+  CONSTRAINT `FK_EmployeeAccount` FOREIGN KEY (`AccountID`) REFERENCES `account` (`AccountId`) ON DELETE SET NULL,
+  CONSTRAINT `FK_EmployeeDepartment` FOREIGN KEY (`DepartmentID`) REFERENCES `department` (`DepartmentId`) ON DELETE SET NULL,
+  CONSTRAINT `FK_EmployeePosition` FOREIGN KEY (`PositionID`) REFERENCES `positions` (`PositionID`) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `employee`
+--
+
+LOCK TABLES `employee` WRITE;
+/*!40000 ALTER TABLE `employee` DISABLE KEYS */;
+INSERT INTO `employee` VALUES ('0d002bc5-8f78-4f6c-ab53-03a28099b487','NV00005',NULL,NULL,NULL,NULL,0.0000,NULL,0,NULL,NULL,NULL,NULL,'eece606d-d715-4526-8576-6714491c6d6f',NULL,NULL,NULL,NULL,NULL,0,NULL,NULL,NULL,NULL),('36a02b74-8a67-4e62-96fc-f5f3761f0024','NV00004',NULL,NULL,NULL,NULL,0.0000,NULL,0,NULL,NULL,NULL,NULL,'7f508e11-ed11-4b70-ba26-da05606fd162',NULL,NULL,NULL,NULL,NULL,0,NULL,NULL,NULL,NULL),('3c1f3540-73e0-47b7-8c41-e6a6c454eece','NV00001',NULL,NULL,NULL,NULL,0.0000,NULL,0,NULL,NULL,NULL,NULL,'ed8e73fc-2097-4f3b-8103-a092cc5e082f',NULL,NULL,NULL,NULL,NULL,0,NULL,NULL,NULL,NULL),('55ea0856-bc91-4a6f-b107-31a51a60dadf','NV00003',NULL,NULL,NULL,NULL,0.0000,NULL,0,NULL,NULL,NULL,NULL,'710571cd-c80e-4b15-b29c-13ab8a617e8c',NULL,NULL,NULL,NULL,NULL,0,NULL,NULL,NULL,NULL),('6d8a28bf-a0e5-40ff-b39b-a8953c394a7f','NV00002',NULL,NULL,NULL,NULL,0.0000,NULL,0,NULL,NULL,NULL,NULL,'66953006-156b-47a5-aaa1-42219157a916',NULL,NULL,NULL,NULL,NULL,0,NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `employee` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `line`
+--
+
+DROP TABLE IF EXISTS `line`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `line` (
+  `LineId` char(36) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL,
+  `LineCode` varchar(20) DEFAULT NULL,
+  `AccountId` char(36) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL,
+  `ProductId` char(36) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL,
+  `OrderId` char(36) CHARACTER SET ascii COLLATE ascii_general_ci DEFAULT NULL,
+  `Quantity` int NOT NULL,
+  `TotalPrice` decimal(18,4) DEFAULT NULL,
+  `CreateDate` date DEFAULT NULL,
+  `CreateBy` varchar(255) DEFAULT NULL,
+  `ModifiedDate` date DEFAULT NULL,
+  `ModifiedBy` varchar(266) DEFAULT NULL,
+  `isComplete` int NOT NULL,
+  `CustomerId` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`LineId`),
+  KEY `FK_LineOrder` (`OrderId`),
+  KEY `FK_LineProduct` (`ProductId`),
+  KEY `FKl6yo8q4bfxpr2w8rmq74xnw0i` (`AccountId`),
+  CONSTRAINT `FK_LineOrder` FOREIGN KEY (`OrderId`) REFERENCES `orders` (`OrderId`) ON DELETE SET NULL,
+  CONSTRAINT `FK_LineProduct` FOREIGN KEY (`ProductId`) REFERENCES `product` (`ProductId`),
+  CONSTRAINT `FKl6yo8q4bfxpr2w8rmq74xnw0i` FOREIGN KEY (`AccountId`) REFERENCES `account` (`AccountId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `line`
+--
+
+LOCK TABLES `line` WRITE;
+/*!40000 ALTER TABLE `line` DISABLE KEYS */;
+INSERT INTO `line` VALUES ('0a6fcf42-045b-4a00-98f0-ad51c7910ecb','D0000002','175b8681-df9e-41a3-a7a6-058943ccc460','8f640a1c-57c8-4e5f-9d5c-de487fa2b2a5','19a3ff1f-bcf3-4152-a843-16ab8fdcbca2',2,0.0000,NULL,NULL,NULL,NULL,0,NULL),('12d1f9de-60c7-40d5-a79b-a7bee9fec4a1','D0000003','2907daa6-6eb4-485e-ac95-18b9e1dbd116','8f640a1c-57c8-4e5f-9d5c-de487fa2b2a5','3fa9293e-b708-4aa1-8dd6-0b57fcf7adcf',1,0.0000,NULL,NULL,NULL,NULL,0,NULL),('285c722e-aa32-4409-b2d6-9777bbc7f2dd','D0000004','2907daa6-6eb4-485e-ac95-18b9e1dbd116','5fa762ee-8e66-4319-96db-e2026e23e1e7','3fa9293e-b708-4aa1-8dd6-0b57fcf7adcf',2,0.0000,NULL,NULL,NULL,NULL,0,NULL),('34a8b04f-233a-4280-9496-5ec7e22b8750','D0000005','2907daa6-6eb4-485e-ac95-18b9e1dbd116','3a9731a3-f46f-4a21-9e90-e236955a90d1',NULL,2,0.0000,NULL,NULL,NULL,NULL,0,NULL),('3dc203ba-c141-4d13-841f-c6dd88ca08b6','D0000006','2907daa6-6eb4-485e-ac95-18b9e1dbd116','5ab9e477-c3c1-4a5d-8750-6f0ebcf5a218','055712d4-d453-4647-9e30-15441d952043',1,0.0000,NULL,NULL,NULL,NULL,0,NULL),('66b07dc4-4997-47f7-b0f3-be61d42c0b33','D0000007','2907daa6-6eb4-485e-ac95-18b9e1dbd116','ea40483d-edbf-48f7-ae52-31f397a4969b',NULL,1,0.0000,NULL,NULL,NULL,NULL,0,NULL),('6a40d68a-37f9-487c-96cb-7e8ab07d6572','D0000008','c7bc06c5-7cbc-4d82-a9a2-f92b36f2bfdf','5811a5a9-b01d-4102-9776-e01de2225fa6','4ae82255-e392-47b3-a318-71411b20cbc6',3,0.0000,NULL,NULL,NULL,NULL,0,NULL),('6b063a32-468d-4327-b969-fddd3a8b4fc0','D0000009','c7bc06c5-7cbc-4d82-a9a2-f92b36f2bfdf','ea40483d-edbf-48f7-ae52-31f397a4969b',NULL,1,0.0000,NULL,NULL,NULL,NULL,0,NULL),('74188d14-4a72-4bbd-964b-70465478e642','D0000010','c7bc06c5-7cbc-4d82-a9a2-f92b36f2bfdf','3a9731a3-f46f-4a21-9e90-e236955a90d1','055712d4-d453-4647-9e30-15441d952043',1,0.0000,NULL,NULL,NULL,NULL,0,NULL),('7bcd4436-7cf8-47a0-af6d-406c19055b15','D0000011','c7bc06c5-7cbc-4d82-a9a2-f92b36f2bfdf','7b5f15e1-e0c7-4751-95da-2579a5dfe8c0',NULL,1,0.0000,NULL,NULL,NULL,NULL,0,NULL),('98b6f18d-ca7c-4d4d-a5b3-a1097c2d0a91','D0000012','c7bc06c5-7cbc-4d82-a9a2-f92b36f2bfdf','b10da7f6-5e20-426f-8fc1-2f2d026edc44',NULL,1,0.0000,NULL,NULL,NULL,NULL,0,NULL),('a4ed8dc5-1dbe-4301-b24c-1f4057f98209','D0000013','cc2f3e6b-213a-4a00-b093-f806cdd68c82','5811a5a9-b01d-4102-9776-e01de2225fa6','055712d4-d453-4647-9e30-15441d952043',2,0.0000,NULL,NULL,NULL,NULL,0,NULL),('ba8bb457-5f80-418b-88f0-550971eb4611','D0000014','e6a0ecd9-8080-4a27-a494-281ddbfc21fc','18124a65-7bd3-41b8-a957-3e7087b1958d',NULL,1,0.0000,NULL,NULL,NULL,NULL,0,NULL),('c112781b-f853-4228-8023-9d971d9367f7','D0000015','e6a0ecd9-8080-4a27-a494-281ddbfc21fc','7b5f15e1-e0c7-4751-95da-2579a5dfe8c0',NULL,2,0.0000,NULL,NULL,NULL,NULL,0,NULL),('c6ed7a8e-d251-4ee2-877e-873ca4f6cae3','D0000016','ed8e73fc-2097-4f3b-8103-a092cc5e082f','18124a65-7bd3-41b8-a957-3e7087b1958d','fabd6131-e671-4f16-a84e-57772ed4cdcd',3,0.0000,NULL,NULL,NULL,NULL,0,NULL),('cc2cddd0-bc84-4591-9aa8-bf6069cdd584','D0000017','ed8e73fc-2097-4f3b-8103-a092cc5e082f','5ab9e477-c3c1-4a5d-8750-6f0ebcf5a218','055712d4-d453-4647-9e30-15441d952043',1,0.0000,NULL,NULL,NULL,NULL,0,NULL),('eb6c17d7-f0dd-43ad-999a-905f6561a880','D0000018','2907daa6-6eb4-485e-ac95-18b9e1dbd116','64aa7e8a-170e-4cef-b357-27c683573016',NULL,1,0.0000,NULL,NULL,NULL,NULL,0,NULL),('f108d8db-0853-4b20-b4e2-8d8afb055055','D0000019','2907daa6-6eb4-485e-ac95-18b9e1dbd116','b10da7f6-5e20-426f-8fc1-2f2d026edc44','ea0ab57f-c6ed-47cf-8824-56b9723c7299',2,0.0000,NULL,NULL,NULL,NULL,0,NULL),('fe70a18c-2277-4d0e-93c3-7ef8e8186810','D0000020','ed8e73fc-2097-4f3b-8103-a092cc5e082f','64aa7e8a-170e-4cef-b357-27c683573016','b33a119b-a83c-494d-a12e-f514d17c4904',2,0.0000,NULL,NULL,NULL,NULL,0,NULL);
+/*!40000 ALTER TABLE `line` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `orders`
+--
+
+DROP TABLE IF EXISTS `orders`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `orders` (
+  `OrderId` char(36) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL,
+  `OrderCode` varchar(20) NOT NULL,
+  `OrderDate` date DEFAULT NULL,
+  `ConditionId` char(36) CHARACTER SET ascii COLLATE ascii_general_ci DEFAULT NULL,
+  `PaymentId` char(36) CHARACTER SET ascii COLLATE ascii_general_ci DEFAULT NULL,
+  `AddressId` char(36) CHARACTER SET ascii COLLATE ascii_general_ci DEFAULT NULL,
+  `DeliveryId` char(36) CHARACTER SET ascii COLLATE ascii_general_ci DEFAULT NULL,
+  `TotalOfOrder` decimal(18,4) DEFAULT NULL,
+  `CreateDate` date DEFAULT NULL,
+  `CreateBy` varchar(255) DEFAULT NULL,
+  `ModifiedDate` date DEFAULT NULL,
+  `ModifiedBy` varchar(266) DEFAULT NULL,
+  PRIMARY KEY (`OrderId`),
+  KEY `FK_OrderAddress` (`AddressId`),
+  KEY `FK_OrderDelivery` (`DeliveryId`),
+  KEY `FK_OrderPayment` (`PaymentId`),
+  KEY `FK_OrderCondition` (`ConditionId`),
+  CONSTRAINT `FK_OrderAddress` FOREIGN KEY (`AddressId`) REFERENCES `address` (`AddressId`),
+  CONSTRAINT `FK_OrderCondition` FOREIGN KEY (`ConditionId`) REFERENCES `conditions` (`ConditionId`),
+  CONSTRAINT `FK_OrderDelivery` FOREIGN KEY (`DeliveryId`) REFERENCES `delivery` (`DeliveryId`),
+  CONSTRAINT `FK_OrderPayment` FOREIGN KEY (`PaymentId`) REFERENCES `payment` (`PaymentId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `orders`
+--
+
+LOCK TABLES `orders` WRITE;
+/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+INSERT INTO `orders` VALUES ('055712d4-d453-4647-9e30-15441d952043','ĐH0000005',NULL,'e5192344-055e-4f24-ac0b-1f323de6df59','c8b6eb7b-c960-4f12-98aa-2d1c029590fa','91816083-46a0-43f5-af08-3aa929db439c','57e4d32f-4cfb-4e6c-8390-c6dd99e38619',NULL,NULL,NULL,NULL,NULL),('19a3ff1f-bcf3-4152-a843-16ab8fdcbca2','ĐH0000003',NULL,'5dd64ef5-a006-4f63-b257-beb60b40a1a1','18d28a19-767c-44e2-bfdf-6b5eecc306ca','48b022b3-cf6c-4de4-abf1-fdce49b7d0a1','57e4d32f-4cfb-4e6c-8390-c6dd99e38619',NULL,NULL,NULL,NULL,NULL),('3fa9293e-b708-4aa1-8dd6-0b57fcf7adcf','ĐH0000004',NULL,'5dd64ef5-a006-4f63-b257-beb60b40a1a1','18d28a19-767c-44e2-bfdf-6b5eecc306ca','872a918d-782d-446c-9650-432fe827ce44','57e4d32f-4cfb-4e6c-8390-c6dd99e38619',NULL,NULL,NULL,NULL,NULL),('4ae82255-e392-47b3-a318-71411b20cbc6','ĐH0000001',NULL,'f9a8462f-86b3-4c76-b66e-017b8a225d1f','aac6bb04-2913-4057-983f-81902c142c1a','18db467e-82d2-4e45-9ee2-5b999a6384a1','57e4d32f-4cfb-4e6c-8390-c6dd99e38619',NULL,NULL,NULL,NULL,NULL),('7e6c1efe-2376-468d-a290-ea1fcc096dfe','ĐH00000289',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),('b33a119b-a83c-494d-a12e-f514d17c4904','ĐH00000290',NULL,'6e23e489-68ad-499d-9ceb-456e3692ba7a','c8b6eb7b-c960-4f12-98aa-2d1c029590fa','91816083-46a0-43f5-af08-3aa929db439c','57e4d32f-4cfb-4e6c-8390-c6dd99e38619',NULL,NULL,NULL,NULL,NULL),('ea0ab57f-c6ed-47cf-8824-56b9723c7299','ĐH00000289',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),('fabd6131-e671-4f16-a84e-57772ed4cdcd','ĐH0000002',NULL,'f9a8462f-86b3-4c76-b66e-017b8a225d1f','aac6bb04-2913-4057-983f-81902c142c1a','26cd0198-8915-4a93-b712-4ed1422fa472','57e4d32f-4cfb-4e6c-8390-c6dd99e38619',NULL,NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `otp`
+--
+
+DROP TABLE IF EXISTS `otp`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `otp` (
+  `email` varchar(255) NOT NULL,
+  `expirationTime` datetime(6) DEFAULT NULL,
+  `otp` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `otp`
+--
+
+LOCK TABLES `otp` WRITE;
+/*!40000 ALTER TABLE `otp` DISABLE KEYS */;
+INSERT INTO `otp` VALUES ('caibutchi267@gmail.com','2023-12-04 16:12:01.649000','806476'),('topthuthuat69@gmail.com','2023-12-02 16:58:50.337000','276598'),('tranbinhan223@gmail.com','2023-12-05 08:41:45.897000','350316');
+/*!40000 ALTER TABLE `otp` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `payment`
+--
+
+DROP TABLE IF EXISTS `payment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `payment` (
+  `PaymentId` char(36) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL,
+  `PaymentCode` varchar(20) NOT NULL,
+  `PaymentName` varchar(255) NOT NULL,
+  `Describle` varchar(255) DEFAULT NULL,
+  `CreateDate` date DEFAULT NULL,
+  `CreateBy` varchar(255) DEFAULT NULL,
+  `ModifiedDate` date DEFAULT NULL,
+  `ModifiedBy` varchar(266) DEFAULT NULL,
+  PRIMARY KEY (`PaymentId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `payment`
+--
+
+LOCK TABLES `payment` WRITE;
+/*!40000 ALTER TABLE `payment` DISABLE KEYS */;
+INSERT INTO `payment` VALUES ('18d28a19-767c-44e2-bfdf-6b5eecc306ca','P0002','Thanh toán qua ví momo','người mua thanh toán bằng ví momo trước khi hàng được giao',NULL,NULL,NULL,NULL),('223fcca9-868e-40c7-93d7-b035810011da','P0004','Bốc họ để thanh toán','người mua sẽ đi bộc họ để thanh toán',NULL,NULL,NULL,NULL),('40928df3-0f3e-4b18-8cc3-241ac2fcbbaa','P0005','K thanh toán','người mua sẽ bùng tiền',NULL,NULL,NULL,NULL),('aac6bb04-2913-4057-983f-81902c142c1a','P0001','Thanh toán khi nhận hàng','người mua sẽ thanh toán qua shipper',NULL,NULL,NULL,NULL),('c8b6eb7b-c960-4f12-98aa-2d1c029590fa','P0003','Thanh toán qua ShopeePay','người mua thanh toán bằng ví momo trước khi hàng được giao',NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `payment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `position`
+--
+
+DROP TABLE IF EXISTS `position`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `position` (
+  `PositionId` varchar(255) NOT NULL,
+  `CreateBy` varchar(255) DEFAULT NULL,
+  `CreateDate` datetime(6) DEFAULT NULL,
+  `ModifiedBy` varchar(255) DEFAULT NULL,
+  `ModifiedDate` datetime(6) DEFAULT NULL,
+  `PositionCode` varchar(255) DEFAULT NULL,
+  `PositionName` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`PositionId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `position`
+--
+
+LOCK TABLES `position` WRITE;
+/*!40000 ALTER TABLE `position` DISABLE KEYS */;
+/*!40000 ALTER TABLE `position` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `positions`
+--
+
+DROP TABLE IF EXISTS `positions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `positions` (
+  `PositionID` char(36) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL COMMENT 'khoa chinh voi gia tri la chuoi ki tu dai 36',
+  `PositionCode` varchar(20) NOT NULL,
+  `PositionName` varchar(255) NOT NULL,
+  `CreateDate` date DEFAULT NULL,
+  `CreateBy` varchar(255) DEFAULT NULL,
+  `ModifiedDate` date DEFAULT NULL,
+  `ModifiedBy` varchar(266) DEFAULT NULL,
+  PRIMARY KEY (`PositionID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `positions`
+--
+
+LOCK TABLES `positions` WRITE;
+/*!40000 ALTER TABLE `positions` DISABLE KEYS */;
+INSERT INTO `positions` VALUES ('150c022d-f105-4407-ab50-d823677e0532','VC0002','Phó phòng',NULL,NULL,NULL,NULL),('3f0a272d-c32b-4c9e-9707-a4285530b19b','VC0004','Leader',NULL,NULL,NULL,NULL),('744b69af-3d8c-4009-b24d-5a3dd4fc8480','VC0005','Nhân viên',NULL,NULL,NULL,NULL),('76495c99-062f-4354-b62f-c8a3692a674a','VC0003','Quản lý',NULL,NULL,NULL,NULL),('99cf298c-5e2d-4eb2-a658-b16e072b473c','VC0001','Trưởng phòng',NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `positions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `product`
+--
+
+DROP TABLE IF EXISTS `product`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `product` (
+  `ProductId` char(36) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL,
+  `ProductCode` varchar(20) NOT NULL,
+  `ProductName` varchar(100) NOT NULL COMMENT 'Ten day du',
+  `Trademake` varchar(100) NOT NULL COMMENT 'Tên thuong hieu',
+  `CategoryId` char(36) CHARACTER SET ascii COLLATE ascii_general_ci DEFAULT NULL,
+  `Describle` varchar(300) NOT NULL,
+  `Image` blob,
+  `Color` varchar(50) DEFAULT NULL,
+  `Specifications` varchar(300) DEFAULT NULL COMMENT 'thông số kĩ thuật',
+  `Origin` varchar(300) DEFAULT NULL COMMENT 'địa chỉ cơ sở sản xuất',
+  `Version` varchar(20) DEFAULT NULL COMMENT 'phiên bản',
+  `ConditionOfProduct` varchar(20) DEFAULT NULL COMMENT 'tình trạng hiện tại của sản phẩm',
+  `Size` varchar(20) DEFAULT NULL,
+  `Guarantee` varchar(20) DEFAULT NULL COMMENT 'thời hạn bảo hành',
+  `Price` decimal(18,4) NOT NULL,
+  `PriceSale` decimal(18,4) DEFAULT NULL,
+  `CreateDate` date DEFAULT NULL,
+  `CreateBy` varchar(255) DEFAULT NULL,
+  `ModifiedDate` date DEFAULT NULL,
+  `ModifiedBy` varchar(266) DEFAULT NULL,
+  `Inventory` int NOT NULL,
+  PRIMARY KEY (`ProductId`),
+  KEY `FK_ProductCategory` (`CategoryId`),
+  CONSTRAINT `FK_ProductCategory` FOREIGN KEY (`CategoryId`) REFERENCES `category` (`CategoryId`) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `product`
+--
+
+LOCK TABLES `product` WRITE;
+/*!40000 ALTER TABLE `product` DISABLE KEYS */;
+INSERT INTO `product` VALUES ('18124a65-7bd3-41b8-a957-3e7087b1958d','SP0006','PC LG','LG','b1da3583-4ec7-49a7-9fd5-92b84e635f39','xịn',NULL,NULL,'K có',NULL,NULL,NULL,NULL,NULL,12220000.0000,NULL,NULL,NULL,NULL,NULL,0),('3a9731a3-f46f-4a21-9e90-e236955a90d1','SP0001','IPhone12','Iphone','85ff8df4-31bc-4e20-9b98-add8e55094cf','xịn',NULL,NULL,'K có',NULL,NULL,NULL,NULL,NULL,5330000.0000,NULL,NULL,NULL,NULL,NULL,15),('5811a5a9-b01d-4102-9776-e01de2225fa6','SP0003','IPhone13 pro max','Iphone','85ff8df4-31bc-4e20-9b98-add8e55094cf','xịn',NULL,NULL,'K có',NULL,NULL,NULL,NULL,NULL,2324000.0000,2324000.0000,NULL,NULL,NULL,NULL,22),('5ab9e477-c3c1-4a5d-8750-6f0ebcf5a218','SP0010','PC Dell','Dell','b1da3583-4ec7-49a7-9fd5-92b84e635f39','xịn',NULL,NULL,'K có',NULL,NULL,NULL,NULL,NULL,12430000.0000,12430000.0000,NULL,NULL,NULL,NULL,1),('5fa762ee-8e66-4319-96db-e2026e23e1e7','SP0004','Dell 9205','Dell','bd285f1a-e418-4e65-a8b7-fc6f7e04233f','xịn',NULL,NULL,'K có',NULL,NULL,NULL,NULL,NULL,15999000.0000,15999000.0000,NULL,NULL,NULL,NULL,1),('64aa7e8a-170e-4cef-b357-27c683573016','SP0002','IPhone13','Iphone','85ff8df4-31bc-4e20-9b98-add8e55094cf','xịn',NULL,NULL,'K có',NULL,NULL,NULL,NULL,NULL,34000000.0000,34000000.0000,NULL,NULL,NULL,NULL,26),('7b5f15e1-e0c7-4751-95da-2579a5dfe8c0','SP0007','Camera Zcam','Z','27006ebe-0655-4de0-9040-3e3ca0a3ea6e','xịn',NULL,NULL,'K có',NULL,NULL,NULL,NULL,NULL,6999000.0000,6999000.0000,NULL,NULL,NULL,NULL,30),('8f640a1c-57c8-4e5f-9d5c-de487fa2b2a5','SP0008','Samsung A20','Samsung','85ff8df4-31bc-4e20-9b98-add8e55094cf','xịn',NULL,NULL,'K có',NULL,NULL,NULL,NULL,NULL,8999000.0000,8999000.0000,NULL,NULL,NULL,NULL,50),('b10da7f6-5e20-426f-8fc1-2f2d026edc44','SP0009','Máy chơi game Nintendo Switch','nintendo',NULL,'xịn',NULL,NULL,'K có',NULL,NULL,NULL,NULL,NULL,10999000.0000,10999000.0000,NULL,NULL,NULL,NULL,70),('e9d27c6b-1983-4f84-941e-c47a13aa9694','SP00011','IPhone12','Iphone','85ff8df4-31bc-4e20-9b98-add8e55094cf','xịn',NULL,NULL,'K có',NULL,NULL,NULL,NULL,NULL,5999000.0000,5999000.0000,NULL,NULL,NULL,NULL,99),('ea40483d-edbf-48f7-ae52-31f397a4969b','SP0005','Asus 1109','Asus','bd285f1a-e418-4e65-a8b7-fc6f7e04233f','xịn',NULL,NULL,'K có',NULL,NULL,NULL,NULL,NULL,12999000.0000,12999000.0000,NULL,NULL,NULL,NULL,200);
+/*!40000 ALTER TABLE `product` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ranks`
+--
+
+DROP TABLE IF EXISTS `ranks`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `ranks` (
+  `RankId` char(36) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL,
+  `RankCode` varchar(20) NOT NULL,
+  `RankName` varchar(255) NOT NULL,
+  `Describle` varchar(300) DEFAULT NULL,
+  `CreateDate` date DEFAULT NULL,
+  `CreateBy` varchar(255) DEFAULT NULL,
+  `ModifiedDate` date DEFAULT NULL,
+  `ModifiedBy` varchar(266) DEFAULT NULL,
+  PRIMARY KEY (`RankId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ranks`
+--
+
+LOCK TABLES `ranks` WRITE;
+/*!40000 ALTER TABLE `ranks` DISABLE KEYS */;
+INSERT INTO `ranks` VALUES ('0f8b1206-43ec-4ffd-a82d-61a49a890e6b','R0004','Thành viên vàng','Khi nào có nhiều tiền thì mua, tạm ổn',NULL,NULL,NULL,NULL),('8bc662d1-673a-4adf-bd6d-ee055139e7f5','R0002','Thành viên đồng','Có mua nhưng ít lắm, mấy năm mới mua 1 lần',NULL,NULL,NULL,NULL),('c0a25673-e1cc-4cee-8d12-a12607476f01','R0003','Thành viên bạc','Mấy tuần mua 1 lần, vân k ăn thua',NULL,NULL,NULL,NULL),('c8e4b0ff-58b3-4126-ac33-68e0ec676c7e','R0001','Thành viên sắt','Chả mua cái gì bao h',NULL,NULL,NULL,NULL),('fe7d81a1-c838-4885-bbbe-ddb181773380','R0005','Thành viên kim cương','Thanh niên này đi bốc họ để mua đồ, báo bố mẹ quá',NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `ranks` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `rate`
+--
+
+DROP TABLE IF EXISTS `rate`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `rate` (
+  `RateId` char(36) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL,
+  `RateCode` varchar(20) NOT NULL,
+  `Scores` int DEFAULT NULL,
+  `Image` blob,
+  `Describle` varchar(1000) DEFAULT NULL,
+  `LineId` char(36) CHARACTER SET ascii COLLATE ascii_general_ci DEFAULT NULL,
+  `CreateDate` date DEFAULT NULL,
+  `CreateBy` varchar(255) DEFAULT NULL,
+  `ModifiedDate` date DEFAULT NULL,
+  `ModifiedBy` varchar(266) DEFAULT NULL,
+  PRIMARY KEY (`RateId`),
+  KEY `FK_RateLine` (`LineId`),
+  CONSTRAINT `FK_RateLine` FOREIGN KEY (`LineId`) REFERENCES `line` (`LineId`) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `rate`
+--
+
+LOCK TABLES `rate` WRITE;
+/*!40000 ALTER TABLE `rate` DISABLE KEYS */;
+/*!40000 ALTER TABLE `rate` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `role`
+--
+
+DROP TABLE IF EXISTS `role`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `role` (
+  `RoleId` char(36) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL,
+  `RoleCode` varchar(20) NOT NULL,
+  `RoleName` varchar(255) DEFAULT NULL,
+  `Describle` varchar(1000) DEFAULT NULL,
+  `CreateDate` date DEFAULT NULL,
+  `CreateBy` varchar(255) DEFAULT NULL,
+  `ModifiedDate` date DEFAULT NULL,
+  `ModifiedBy` varchar(266) DEFAULT NULL,
+  PRIMARY KEY (`RoleId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `role`
+--
+
+LOCK TABLES `role` WRITE;
+/*!40000 ALTER TABLE `role` DISABLE KEYS */;
+INSERT INTO `role` VALUES ('16e3cefb-c5bb-4d37-a442-f1c5d4afb7ac','R001','CUSTOMER','có chức năng mua hàng, thêm vào giỏ hàng',NULL,NULL,NULL,NULL),('323b325d-47e1-411b-9bab-e855606c4fce','R003','MANAGE','có chức năng của quản lý',NULL,NULL,NULL,NULL),('847aab21-e1d0-41e6-8bd6-d6d55f7f02f4','R004','ADMIN','có chức năng của admin',NULL,NULL,NULL,NULL),('d2e90f57-5504-41fa-aa5d-911b087c6c29','R002','EMPLOYEE','có chức năng của nhân viên',NULL,NULL,NULL,NULL),('eb4072bd-9ee5-4a84-87e8-4d6d331048ee','R005','SUPER_ADMIN','có chức năng của super admin',NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `role` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users_role`
+--
+
+DROP TABLE IF EXISTS `users_role`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `users_role` (
+  `AccountId` char(36) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL,
+  `RoleId` char(36) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL,
+  PRIMARY KEY (`AccountId`,`RoleId`),
+  KEY `FK_Role` (`RoleId`),
+  CONSTRAINT `FK_Account` FOREIGN KEY (`AccountId`) REFERENCES `account` (`AccountId`),
+  CONSTRAINT `FK_Role` FOREIGN KEY (`RoleId`) REFERENCES `role` (`RoleId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users_role`
+--
+
+LOCK TABLES `users_role` WRITE;
+/*!40000 ALTER TABLE `users_role` DISABLE KEYS */;
+INSERT INTO `users_role` VALUES ('175b8681-df9e-41a3-a7a6-058943ccc460','16e3cefb-c5bb-4d37-a442-f1c5d4afb7ac'),('2907daa6-6eb4-485e-ac95-18b9e1dbd116','16e3cefb-c5bb-4d37-a442-f1c5d4afb7ac'),('66953006-156b-47a5-aaa1-42219157a916','16e3cefb-c5bb-4d37-a442-f1c5d4afb7ac'),('710571cd-c80e-4b15-b29c-13ab8a617e8c','16e3cefb-c5bb-4d37-a442-f1c5d4afb7ac'),('72d8b20c-b62e-4a9d-a093-efc293886d2a','16e3cefb-c5bb-4d37-a442-f1c5d4afb7ac'),('7f508e11-ed11-4b70-ba26-da05606fd162','16e3cefb-c5bb-4d37-a442-f1c5d4afb7ac'),('c7bc06c5-7cbc-4d82-a9a2-f92b36f2bfdf','16e3cefb-c5bb-4d37-a442-f1c5d4afb7ac'),('cc2f3e6b-213a-4a00-b093-f806cdd68c82','16e3cefb-c5bb-4d37-a442-f1c5d4afb7ac'),('e6a0ecd9-8080-4a27-a494-281ddbfc21fc','16e3cefb-c5bb-4d37-a442-f1c5d4afb7ac'),('ed8e73fc-2097-4f3b-8103-a092cc5e082f','16e3cefb-c5bb-4d37-a442-f1c5d4afb7ac'),('eece606d-d715-4526-8576-6714491c6d6f','16e3cefb-c5bb-4d37-a442-f1c5d4afb7ac'),('175b8681-df9e-41a3-a7a6-058943ccc460','323b325d-47e1-411b-9bab-e855606c4fce'),('2907daa6-6eb4-485e-ac95-18b9e1dbd116','323b325d-47e1-411b-9bab-e855606c4fce'),('66953006-156b-47a5-aaa1-42219157a916','323b325d-47e1-411b-9bab-e855606c4fce'),('710571cd-c80e-4b15-b29c-13ab8a617e8c','323b325d-47e1-411b-9bab-e855606c4fce'),('eece606d-d715-4526-8576-6714491c6d6f','323b325d-47e1-411b-9bab-e855606c4fce'),('175b8681-df9e-41a3-a7a6-058943ccc460','847aab21-e1d0-41e6-8bd6-d6d55f7f02f4'),('2907daa6-6eb4-485e-ac95-18b9e1dbd116','847aab21-e1d0-41e6-8bd6-d6d55f7f02f4'),('eece606d-d715-4526-8576-6714491c6d6f','847aab21-e1d0-41e6-8bd6-d6d55f7f02f4'),('175b8681-df9e-41a3-a7a6-058943ccc460','d2e90f57-5504-41fa-aa5d-911b087c6c29'),('2907daa6-6eb4-485e-ac95-18b9e1dbd116','d2e90f57-5504-41fa-aa5d-911b087c6c29'),('66953006-156b-47a5-aaa1-42219157a916','d2e90f57-5504-41fa-aa5d-911b087c6c29'),('710571cd-c80e-4b15-b29c-13ab8a617e8c','d2e90f57-5504-41fa-aa5d-911b087c6c29'),('72d8b20c-b62e-4a9d-a093-efc293886d2a','d2e90f57-5504-41fa-aa5d-911b087c6c29'),('7f508e11-ed11-4b70-ba26-da05606fd162','d2e90f57-5504-41fa-aa5d-911b087c6c29'),('eece606d-d715-4526-8576-6714491c6d6f','d2e90f57-5504-41fa-aa5d-911b087c6c29'),('eece606d-d715-4526-8576-6714491c6d6f','eb4072bd-9ee5-4a84-87e8-4d6d331048ee');
+/*!40000 ALTER TABLE `users_role` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2024-01-06 11:19:20

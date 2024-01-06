@@ -14,5 +14,4 @@ public class AccountController extends BaseController<Account> {
 	public AccountController() {
 		super(Account.class);
 	}
-	
 }

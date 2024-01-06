@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -84,17 +85,23 @@ public abstract class BaseController<T> {
 		return a;
 	}
 
-	@PutMapping(value = "/put/{Id}")
-	public int Update(@PathVariable String Id, @RequestBody Map<String, Object> requestBody) throws ClassNotFoundException {
-		ObjectMapper mapper = new ObjectMapper();
-		T t = mapper.convertValue(requestBody, entityType);
-		int a = repo.Update(entityType, t, Id);
-		return a;
-	}
+//	@PutMapping(value = "/put/{Id}")
+//	public int Update(@PathVariable String Id, @RequestBody Map<String, Object> requestBody) throws ClassNotFoundException {
+//		ObjectMapper mapper = new ObjectMapper();
+//		T t = mapper.convertValue(requestBody, entityType);
+//		int a = repo.Update(entityType, t, Id);
+//		return a;
+//	}
 
 	@DeleteMapping("/delete/{Id}")
 	public int Delete( @PathVariable String Id) throws ClassNotFoundException {
 		int a = repo.Delete(entityType, Id);
+		return a;
+	}
+	
+	@PatchMapping("/patch/{Id}")
+	public T pacthE( @PathVariable String Id, @RequestBody Map<String, Object> requestBody)throws ClassNotFoundException {
+		T a = repo.patchEntity(entityType,Id ,requestBody);
 		return a;
 	}
 

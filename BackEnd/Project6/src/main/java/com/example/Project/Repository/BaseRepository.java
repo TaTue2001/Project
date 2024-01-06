@@ -1,7 +1,10 @@
 package com.example.Project.Repository;
 
 import java.io.Serializable;
+import java.lang.reflect.Field;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.UUID;
 
 import javax.persistence.EntityManager;
@@ -13,6 +16,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.Project.Interface.Repository.IBaseRepository;
+
 @Primary
 @Repository
 public class BaseRepository<T> implements IBaseRepository<T>, Serializable {
@@ -26,6 +30,7 @@ public class BaseRepository<T> implements IBaseRepository<T>, Serializable {
 		return (T) entityManager.find(entityClass, ID);
 	}
 
+	@Override
 	@Transactional
 	public int Delete(Class entityClass, String Id) {
 		T t = FindById(entityClass, Id);
@@ -98,7 +103,43 @@ public class BaseRepository<T> implements IBaseRepository<T>, Serializable {
 			return null;
 		}
 	}
+	@Override
+	public T FindByField(Class entityClass, String field, String value) {
+		try {
+			String Entity = entityClass.getName();
+			String queryString = "SELECT e FROM " + Entity + " e WHERE e." + field + "= :value";
+			TypedQuery<T> query = (TypedQuery<T>) entityManager.createQuery(queryString);
+			query.setParameter("value", value);
+			T result=query.getSingleResult();
+			return result;
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+			return null;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	@Override
+	public T patchEntity(Class entityClass,String id, Map<String, Object> updates) {
+		T entity = FindById(entityClass, id);
 
-
-
+	    if (entity != null) {
+	        try {
+	            Field[] fields = entityClass.getDeclaredFields();
+	            for (Field field : fields) {
+	                String fieldName = field.getName();
+	                if (updates.containsKey(fieldName)) {
+	                    field.setAccessible(true);
+	                    field.set(entity, updates.get(fieldName));
+	                }
+	            }
+	            return entity;
+	        } catch (IllegalAccessException e) {
+	            e.printStackTrace();
+	        }
+	    }
+	    return null;
+    }
+	
 }

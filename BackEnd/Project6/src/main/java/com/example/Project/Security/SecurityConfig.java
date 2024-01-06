@@ -16,7 +16,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import com.example.Project.Interface.Service.IAccountService;
 import com.example.Project.Service.AccountService;
+
+//import com.example.Project.Service.AccountService;
 
 // Phải sử dụng đúng version Spring Security
 
@@ -64,18 +67,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//		auth.inMemoryAuthentication()
-//        .withUser("user").password(passwordEncoder().encode("password")).roles("ADMIN");
 		auth.userDetailsService(accountService).passwordEncoder(passwordEncoder());
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.cors().and().authorizeRequests()
-				.antMatchers("/login","/logout-once").permitAll() // Cho phép tất cả mọi người truy cập vào địa chỉ này													 
-				.antMatchers("/employee/**").hasAnyAuthority("ADMIN", "MANAGE", "CUSTOMER", "EMPLOYEE", "SUPER-ADMIN")
-				.antMatchers("/department/**").hasAnyAuthority("MANAGE")
-				.antMatchers("/random").hasAnyAuthority("ADMIN", "MANAGE", "CUSTOMER", "EMPLOYEE", "SUPER-ADMIN").anyRequest().authenticated();
+//		.antMatchers("/**").permitAll()
+				.antMatchers("/**").permitAll() 				;								 
+//				.antMatchers("/employee/**").hasAnyAuthority("ADMIN", "MANAGE", "CUSTOMER", "EMPLOYEE", "SUPER-ADMIN")
+//				.antMatchers("/department/**").hasAnyAuthority("MANAGE")
+//				.antMatchers("**/add").hasAnyAuthority("ADMIN", "MANAGE", "CUSTOMER", "EMPLOYEE", "SUPER-ADMIN");
+//				.anyRequest().authenticated();
 		http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
 	}
 

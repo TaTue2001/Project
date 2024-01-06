@@ -12,6 +12,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 //import com.example.Project.Entity.User;
 //import com.example.Project.Entity.Role;
+//
 @SpringBootApplication(exclude = SecurityAutoConfiguration.class)
 @ComponentScan(basePackages = "com.example.Project")
 public class ProjectApplication {
@@ -22,7 +23,6 @@ public class ProjectApplication {
 //	@Bean 
 //	BCryptPasswordEncoder bCryptPasswordEncoder() {
 //		return new BCryptPasswordEncoder();
-	
 //	}
 //	@Bean 
 //	CommandLineRunner run (UserService userService) {

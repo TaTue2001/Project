@@ -3,13 +3,19 @@ package com.example.Project.Entity;
 import java.util.Collection;
 import java.util.Date;
 import java.util.UUID;
+import java.util.Set;
+import java.util.HashSet;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.ManyToAny;
 import org.hibernate.annotations.Type;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,29 +28,56 @@ public class Account {
 	@Type(type = "org.hibernate.type.UUIDCharType")
 	private UUID AccountId;
 	private String UserName;
-	private String PassWord;
-	private String GroupRole;
+	private String PassWord;	
+//	private String GroupRole;
+	private String Email;
+	private String FullName;
+	private Date DateOfBirth;
+	private int Gender=0;
+	private String PhoneNumber;
+	private String IdentifyNumber;
 	private Date CreateDate;
 	private String CreateBy;
 	private Date ModifiedDate;
 	private String ModifiedBy;
+	private int isEmailVarified=0;
+	@ManyToMany
+	@JoinTable(name="users_role", 
+	joinColumns=@JoinColumn(name="AccountId"), 
+	inverseJoinColumns=@JoinColumn	(name="RoleId"))
+	private Set<Role> Roles=new HashSet<>();
 	
 	public Account() {
 	}
-
-	public Account(UUID accountId, String userName, String passWord, String groupRole, Date createDate, String createBy,
-			Date modifiedDate, String modifiedBy) {
+//String groupRole
+	public Account(UUID accountId, String userName, String passWord , String email, String fullName,
+			Date dateOfBirth, int gender, String phoneNumber, String identifyNumber, Date createDate, String createBy,
+			Date modifiedDate, String modifiedBy, int isEmailVarified,Set<Role> roles) {
 		super();
 		AccountId = accountId;
 		UserName = userName;
 		PassWord = passWord;
-		GroupRole = groupRole;
+//		GroupRole = groupRole;
+		Email = email;
+		FullName = fullName;
+		DateOfBirth = dateOfBirth;
+		Gender = gender;
+		PhoneNumber = phoneNumber;	
+		IdentifyNumber = identifyNumber;
 		CreateDate = createDate;
 		CreateBy = createBy;
 		ModifiedDate = modifiedDate;
 		ModifiedBy = modifiedBy;
+		this.isEmailVarified = isEmailVarified;
+		Roles=roles;
 	}
-
+	
+	public Set<Role> getRoles() {
+		return Roles;
+	}
+	public void setRoles(Set<Role> roles) {
+		Roles = roles;
+	}
 	public UUID getAccountId() {
 		return AccountId;
 	}
@@ -69,12 +102,51 @@ public class Account {
 		PassWord = passWord;
 	}
 
-	public String getGroupRole() {
-		return GroupRole;
+	public String getEmail() {
+		return Email;
 	}
 
-	public void setGroupRole(String groupRole) {
-		GroupRole = groupRole;
+	public void setEmail(String email) {
+		Email = email;
+	}
+
+	public String getFullName() {
+		return FullName;
+	}
+
+	public void setFullName(String fullName) {
+		FullName = fullName;
+	}
+
+	public Date getDateOfBirth() {
+		return DateOfBirth;
+	}
+
+	public void setDateOfBirth(Date dateOfBirth) {
+		DateOfBirth = dateOfBirth;
+	}
+
+	public int getGender() {
+		return Gender;
+	}
+	public void setGender(int gender) {
+		Gender = gender;
+	}
+
+	public String getPhoneNumber() {
+		return PhoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		PhoneNumber = phoneNumber;
+	}
+
+	public String getIdentifyNumber() {
+		return IdentifyNumber;
+	}
+
+	public void setIdentifyNumber(String identifyNumber) {
+		IdentifyNumber = identifyNumber;
 	}
 
 	public Date getCreateDate() {
@@ -109,11 +181,12 @@ public class Account {
 		ModifiedBy = modifiedBy;
 	}
 
-	@Override
-	public String toString() {
-		return "Account [AccountId=" + AccountId + ", UserName=" + UserName + ", PassWord=" + PassWord + ", GroupRole="
-				+ GroupRole + ", CreateDate=" + CreateDate + ", CreateBy=" + CreateBy + ", ModifiedDate=" + ModifiedDate
-				+ ", ModifiedBy=" + ModifiedBy + "]";
+	public int getIsEmailVarified() {
+		return isEmailVarified;
 	}
-	
+
+	public void setIsEmailVarified(int isEmailVarified) {
+		this.isEmailVarified = isEmailVarified;
+	}
+
 }

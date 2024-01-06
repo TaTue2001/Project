@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 //import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -50,7 +51,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 		try {
             // Lấy jwt từ request
             String jwt = getJwtFromRequest(request);
-
             if (StringUtils.hasText(jwt) && tokenProvider.validateToken(jwt)) {
                 // Lấy id user từ chuỗi jwt
                 String userName = tokenProvider.getUserNameFromJWT(jwt);
@@ -64,12 +64,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 }
             }
         } catch (Exception ex) {
-//            log.error("failed on set user authentication", ex);
+        	ex.printStackTrace();
         }
 		filterChain.doFilter(request, response);
 	}
 
-	public Object getRole(HttpServletRequest request) {
+	public Object getUser(HttpServletRequest request) {
 		 String jwt = getJwtFromRequest(request);
 		 String userName="";
 		 Collection<? extends GrantedAuthority> role=null;
@@ -81,9 +81,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
              role=userDetails.getAuthorities();
              if(userDetails != null) {
                  // Nếu người dùng hợp lệ, set thông tin cho Seturity Context
-                 UsernamePasswordAuthenticationToken  authentication = new UsernamePasswordAuthenticationToken(userDetails.getUsername(), userDetails.getPassword(), userDetails.getAuthorities());
-                 authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-                 SecurityContextHolder.getContext().setAuthentication(authentication);
+//                 UsernamePasswordAuthenticationToken  authentication = new UsernamePasswordAuthenticationToken(userDetails.getUsername(), userDetails.getPassword(), userDetails.getAuthorities());
+//                 authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+//                 SecurityContextHolder.getContext().setAuthentication(authentication);
                  String roles=role.toString();
                  if(roles.equals("CUSTOMER")) {
                 	 person=iPersonService.getPerson(userName,Customer.class);
@@ -95,6 +95,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
              }
          }
          return person;
+	}
+	
+	public Object getCustomer() {
+		Authentication authentication=SecurityContextHolder.getContext().getAuthentication();
+		Object userDetails=authentication.getPrincipal();
+		return userDetails;
 	}
 	
 	public String getJwtFromRequest(HttpServletRequest request) {
